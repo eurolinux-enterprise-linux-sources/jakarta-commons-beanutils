@@ -46,7 +46,7 @@
 
 Name:           jakarta-commons-beanutils
 Version:        1.7.0
-Release:        12.5%{?dist}
+Release:        12.6%{?dist}
 Epoch:          0
 Summary:        Jakarta Commons BeanUtils Package
 License:        ASL 2.0
@@ -70,6 +70,7 @@ Patch2:         commons-beanutils-1.7.0-LocaleBeanificationTestCase.patch
 Patch3:         commons-beanutils-1.7.0-navigation_xml.patch
 Patch4:         commons-beanutils-1.7.0-project_properties.patch
 Patch5:         commons-beanutils-1.7.0-jdk6.patch
+Patch6:         commons-beanutils-1.7.0-jdk7.patch
 BuildRequires:  ant
 BuildRequires:  ant-junit
 BuildRequires:  junit
@@ -135,6 +136,7 @@ cp -p %{SOURCE10} build-other-jars.xml
 %patch4 -b .sav
 %if %with jdk6
 %patch5 -p1
+%patch6 -p1
 %endif
 
 %build
@@ -280,6 +282,9 @@ fi
 %endif
 
 %changelog
+* Mon Oct 19 2015 Mikolaj Izdebski <mizdebsk@redhat.com> - 0:1.7.0-12.6
+- Add JDK7 support
+
 * Thu Jan 07 2010 Jeff Johnston <jjohnstn@redhat.com> 0:1.7.0-12.5
 - Resolves: #553466
 - Fix URL of source archive.
